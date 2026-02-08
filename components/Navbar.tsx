@@ -9,7 +9,7 @@ import { Logo, LogoMark } from "./Logo";
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const { rooms } = useRooms();
+  const { data: rooms } = useRooms();
 
   useEffect(() => {
     const handleScroll = () => {
