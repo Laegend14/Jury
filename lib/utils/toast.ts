@@ -80,6 +80,7 @@ export const loading = (message: string, options?: ExternalToast) => {
 };
 
 // Promise toast for handling async operations
+// FIXED: Merged messages and options into a single configuration object
 export const promise = <T>(
   promise: Promise<T>,
   messages: {
@@ -93,7 +94,6 @@ export const promise = <T>(
     loading: messages.loading,
     success: messages.success,
     error: messages.error,
-  }, {
     ...defaultOptions,
     ...options,
   });
@@ -134,7 +134,7 @@ export const userRejected = (message: string) => {
 export { sonnerToast as toast };
 
 // Export all functions as a single object for convenience
-export default {
+const toastUtils = {
   success,
   error,
   warning,
@@ -145,3 +145,5 @@ export default {
   userRejected,
   toast: sonnerToast,
 };
+
+export default toastUtils;
